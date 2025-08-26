@@ -1,16 +1,10 @@
-// ==========================================================================
-// Main JavaScript Controller
-// Author: Alex Chen
-// Description: Main controller for portfolio functionality
-// ==========================================================================
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initializePreloader();
     initializeNavigation();
     initializeTypingAnimation();
     initializeScrollAnimations();
-    initializeCounters();
+    // Remove initializeCounters() - handled by components.js
     initializeSkillBars();
     initializeProjects();
     initializeTimeline();
@@ -27,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1500);
 });
+
+// Keep all your other functions as they are...
+// Just remove the initializeCounters function since components.js handles it
 
 // ==========================================================================
 // Preloader
@@ -68,17 +65,8 @@ function initializeNavigation() {
     
     window.addEventListener('scroll', handleScroll);
     
-    // Mobile menu toggle
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        });
-    }
+    // Mobile menu toggle - Let components.js handle this
+    // Remove duplicate mobile menu code
     
     // Active nav link highlighting
     function updateActiveNavLink() {
@@ -90,7 +78,7 @@ function initializeNavigation() {
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
             
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionId) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${sectionId}`) {
@@ -102,20 +90,6 @@ function initializeNavigation() {
     }
     
     window.addEventListener('scroll', updateActiveNavLink);
-    
-    // Close mobile menu when clicking nav links
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                const icon = mobileMenuBtn?.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            }
-        });
-    });
 }
 
 // ==========================================================================
@@ -186,51 +160,7 @@ function initializeScrollAnimations() {
 }
 
 // ==========================================================================
-// Counter Animation
-// ==========================================================================
-function initializeCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    let countersAnimated = false;
-    
-    function animateCounters() {
-        if (countersAnimated) return;
-        
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-count'));
-            const duration = animationConfig?.counterDuration || 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                counter.textContent = Math.floor(current);
-            }, 16);
-        });
-        
-        countersAnimated = true;
-    }
-    
-    // Trigger counter animation when stats section is visible
-    const statsSection = document.querySelector('.stats-container');
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(statsSection);
-    }
-}
-
-// ==========================================================================
-// Skill Bars Animation
+// Skill Bars Animation - Keep this since components.js has different logic
 // ==========================================================================
 function initializeSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
@@ -267,7 +197,7 @@ function initializeSkillBars() {
 }
 
 // ==========================================================================
-// Projects
+// Projects - Keep as is, components.js handles project filtering differently
 // ==========================================================================
 function initializeProjects() {
     const projectsGrid = document.getElementById('projects-grid');
@@ -369,234 +299,334 @@ function initializeProjects() {
     renderProjects();
 }
 
+// Use the updated timeline function from the previous artifact
 // ==========================================================================
-// Timeline
+// Timeline - Updated with better error handling and inline styles
 // ==========================================================================
 function initializeTimeline() {
     const timeline = document.querySelector('.timeline');
     const educationGrid = document.querySelector('.education-grid');
     
-    if (!timeline || !window.experience) return;
+    console.log('Timeline elements:', { timeline, educationGrid }); // Debug log
+    console.log('Experience data:', window.experience); // Debug log
+    console.log('Education data:', window.education); // Debug log
     
     // Render experience timeline
-    experience.forEach((item, index) => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = `timeline-item fade-in-up delay-${(index % 3) + 1}`;
+    if (timeline && window.experience) {
+        timeline.innerHTML = ''; // Clear existing content
         
-        timelineItem.innerHTML = `
-            <div class="timeline-date">${item.startDate} - ${item.endDate}</div>
-            <h3 class="timeline-title">${item.position}</h3>
-            <div class="timeline-company">${item.company} • ${item.location}</div>
-            <p class="timeline-description">${item.description}</p>
-            <div class="timeline-achievements">
-                <ul>
-                    ${item.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
-                </ul>
-            </div>
-        `;
-        
-        timeline.appendChild(timelineItem);
-    });
+        window.experience.forEach((item, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = `timeline-item fade-in-up delay-${(index % 3) + 1}`;
+            
+            // Add inline styles as fallback
+            timelineItem.style.cssText = `
+                position: relative;
+                padding: 2rem 0 2rem 3rem;
+                border-left: 2px solid #e5e7eb;
+                margin-bottom: 2rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            `;
+            
+            timelineItem.innerHTML = `
+                <div class="timeline-marker" style="
+                    position: absolute;
+                    left: -8px;
+                    top: 2rem;
+                    width: 14px;
+                    height: 14px;
+                    background: #3b82f6;
+                    border: 3px solid white;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 2px #3b82f6;
+                "></div>
+                <div class="timeline-date" style="
+                    color: #6b7280;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    margin-bottom: 0.5rem;
+                ">${item.startDate} - ${item.endDate}</div>
+                <h3 class="timeline-title" style="
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: #1f2937;
+                    margin-bottom: 0.25rem;
+                ">${item.position}</h3>
+                <div class="timeline-company" style="
+                    color: #3b82f6;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                ">${item.company} • ${item.location}</div>
+                <p class="timeline-description" style="
+                    color: #4b5563;
+                    line-height: 1.6;
+                    margin-bottom: 1rem;
+                ">${item.description}</p>
+                <div class="timeline-achievements">
+                    <h4 style="
+                        font-weight: 600;
+                        color: #1f2937;
+                        margin-bottom: 0.5rem;
+                        font-size: 0.9rem;
+                    ">Key Achievements:</h4>
+                    <ul style="
+                        list-style: none;
+                        padding-left: 0;
+                        margin: 0;
+                    ">
+                        ${item.achievements.map(achievement => `
+                            <li style="
+                                position: relative;
+                                padding-left: 1.5rem;
+                                margin-bottom: 0.5rem;
+                                color: #4b5563;
+                                line-height: 1.5;
+                            ">
+                                <span style="
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0.5rem;
+                                    width: 6px;
+                                    height: 6px;
+                                    background: #10b981;
+                                    border-radius: 50%;
+                                "></span>
+                                ${achievement}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div class="timeline-tech" style="
+                    margin-top: 1rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                ">
+                    ${item.technologies ? item.technologies.map(tech => `
+                        <span style="
+                            background: #eff6ff;
+                            color: #2563eb;
+                            padding: 0.25rem 0.75rem;
+                            border-radius: 1rem;
+                            font-size: 0.75rem;
+                            font-weight: 500;
+                        ">${tech}</span>
+                    `).join('') : ''}
+                </div>
+            `;
+            
+            timeline.appendChild(timelineItem);
+            
+            // Trigger animation
+            setTimeout(() => {
+                timelineItem.style.opacity = '1';
+                timelineItem.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+    }
     
     // Render education
     if (educationGrid && window.education) {
-        education.forEach((item, index) => {
+        educationGrid.innerHTML = ''; // Clear existing content
+        
+        window.education.forEach((item, index) => {
             const educationCard = document.createElement('div');
             educationCard.className = `education-card fade-in-up delay-${(index % 2) + 1}`;
             
+            // Add inline styles as fallback
+            educationCard.style.cssText = `
+                background: white;
+                border-radius: 1rem;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border: 1px solid #e5e7eb;
+                margin-bottom: 1.5rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+                hover: {
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                    transform: translateY(-5px);
+                }
+            `;
+            
             educationCard.innerHTML = `
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
+                <div class="education-icon" style="
+                    width: 3rem;
+                    height: 3rem;
+                    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 1.5rem;
+                ">
+                    <i class="fas fa-graduation-cap" style="
+                        color: white;
+                        font-size: 1.25rem;
+                    "></i>
                 </div>
-                <div class="education-degree">${item.degree}</div>
-                <div class="education-school">${item.school}</div>
-                <div class="education-year">${item.year}</div>
-                <div class="education-description">${item.description}</div>
+                <div class="education-degree" style="
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    color: #1f2937;
+                    margin-bottom: 0.5rem;
+                    line-height: 1.4;
+                ">${item.degree}</div>
+                <div class="education-school" style="
+                    color: #3b82f6;
+                    font-weight: 600;
+                    margin-bottom: 0.25rem;
+                ">${item.school}</div>
+                <div class="education-location" style="
+                    color: #6b7280;
+                    font-size: 0.875rem;
+                    margin-bottom: 0.5rem;
+                ">${item.location}</div>
+                <div class="education-year" style="
+                    color: #6b7280;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    margin-bottom: 1rem;
+                ">${item.year} ${item.gpa ? `• GPA: ${item.gpa}` : ''}</div>
+                <div class="education-description" style="
+                    color: #4b5563;
+                    line-height: 1.6;
+                    margin-bottom: 1rem;
+                ">${item.description}</div>
+                ${item.coursework ? `
+                    <div class="education-coursework" style="margin-bottom: 1rem;">
+                        <h5 style="
+                            font-weight: 600;
+                            color: #1f2937;
+                            margin-bottom: 0.5rem;
+                            font-size: 0.9rem;
+                        ">Relevant Coursework:</h5>
+                        <div style="
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 0.5rem;
+                        ">
+                            ${item.coursework.map(course => `
+                                <span style="
+                                    background: #f3f4f6;
+                                    color: #374151;
+                                    padding: 0.25rem 0.5rem;
+                                    border-radius: 0.375rem;
+                                    font-size: 0.75rem;
+                                ">${course}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                ${item.honors ? `
+                    <div class="education-honors">
+                        <h5 style="
+                            font-weight: 600;
+                            color: #1f2937;
+                            margin-bottom: 0.5rem;
+                            font-size: 0.9rem;
+                        ">Honors:</h5>
+                        <ul style="
+                            list-style: none;
+                            padding-left: 0;
+                            margin: 0;
+                        ">
+                            ${item.honors.map(honor => `
+                                <li style="
+                                    position: relative;
+                                    padding-left: 1.5rem;
+                                    margin-bottom: 0.25rem;
+                                    color: #4b5563;
+                                    font-size: 0.875rem;
+                                ">
+                                    <span style="
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0.4rem;
+                                        width: 4px;
+                                        height: 4px;
+                                        background: #fbbf24;
+                                        border-radius: 50%;
+                                    "></span>
+                                    ${honor}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
             `;
             
             educationGrid.appendChild(educationCard);
+            
+            // Trigger animation
+            setTimeout(() => {
+                educationCard.style.opacity = '1';
+                educationCard.style.transform = 'translateY(0)';
+            }, (index + 1) * 300);
+        });
+    }
+    
+    // Also render certifications if they exist
+    if (window.certifications && educationGrid) {
+        window.certifications.slice(0, 3).forEach((cert, index) => {
+            const certCard = document.createElement('div');
+            certCard.className = `certification-card fade-in-up delay-${index + 3}`;
+            
+            certCard.style.cssText = `
+                background: linear-gradient(135deg, #f3f4f6, #ffffff);
+                border-radius: 1rem;
+                padding: 1.5rem;
+                border-left: 4px solid #10b981;
+                margin-bottom: 1rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            `;
+            
+            certCard.innerHTML = `
+                <div class="cert-icon" style="
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    background: #10b981;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 1rem;
+                ">
+                    <i class="fas fa-certificate" style="color: white; font-size: 1rem;"></i>
+                </div>
+                <h4 style="
+                    font-weight: 600;
+                    color: #1f2937;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.95rem;
+                    line-height: 1.4;
+                ">${cert.name}</h4>
+                <div style="
+                    color: #6b7280;
+                    font-size: 0.875rem;
+                    margin-bottom: 0.25rem;
+                ">${cert.issuer}</div>
+                <div style="
+                    color: #6b7280;
+                    font-size: 0.8rem;
+                ">${cert.date}</div>
+            `;
+            
+            educationGrid.appendChild(certCard);
+            
+            // Trigger animation
+            setTimeout(() => {
+                certCard.style.opacity = '1';
+                certCard.style.transform = 'translateY(0)';
+            }, (index + window.education.length + 1) * 300);
         });
     }
 }
 
-// ==========================================================================
-// Contact Form
-// ==========================================================================
-function initializeContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-        submitBtn.disabled = true;
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            subject: formData.get('subject'),
-            message: formData.get('message')
-        };
-        
-        try {
-            // Simulate form submission (replace with actual implementation)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Success
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            contactForm.reset();
-            
-        } catch (error) {
-            // Error
-            showNotification('Failed to send message. Please try again.', 'error');
-        } finally {
-            // Reset button
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
-
-// ==========================================================================
-// Parallax Effects
-// ==========================================================================
-function initializeParallax() {
-    const parallaxElements = document.querySelectorAll('.parallax-element');
-    
-    function updateParallax() {
-        const scrollTop = window.pageYOffset;
-        
-        parallaxElements.forEach(element => {
-            const speed = element.getAttribute('data-speed') || 0.5;
-            const yPos = -(scrollTop * speed);
-            element.style.transform = `translateY(${yPos}px)`;
-        });
-    }
-    
-    window.addEventListener('scroll', updateParallax);
-}
-
-// ==========================================================================
-// Smooth Scroll
-// ==========================================================================
-function initializeSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for navbar
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// ==========================================================================
-// Utility Functions
-// ==========================================================================
-function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-    `;
-    notification.textContent = message;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Auto remove
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => notification.remove(), 300);
-    }, 5000);
-}
-
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
-}
-
-// ==========================================================================
-// Performance Optimizations
-// ==========================================================================
-
-// Optimize scroll events
-const optimizedScrollHandler = throttle(() => {
-    // Handle scroll events here
-}, 16); // ~60fps
-
-window.addEventListener('scroll', optimizedScrollHandler);
-
-// Lazy load images
-function initializeLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Initialize lazy loading
-initializeLazyLoading();
+// Keep the rest of your functions...
+// ... (other functions remain the same)

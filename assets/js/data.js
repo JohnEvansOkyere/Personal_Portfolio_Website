@@ -449,21 +449,22 @@ const themeConfig = {
   particles: true
 };
 
-// Export all data
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = {
-    personalInfo,
-    typingTexts,
-    stats,
-    skills,
-    projects,
-    experience,
-    education,
-    certifications,
-    testimonials,
-    blogPosts,
-    contactConfig,
-    animationConfig,
-    themeConfig
-  };
-}
+
+window.experience = experience;
+window.education = education;
+
+
+
+window.personalInfo = personalInfo;
+window.typingTexts = typingTexts;
+window.stats = stats;
+window.skills = skills;
+window.projects = projects;
+window.experience = experience;
+window.education = education;
+window.certifications = certifications;
+window.testimonials = testimonials;
+window.blogPosts = blogPosts;
+window.contactConfig = contactConfig;
+window.animationConfig = animationConfig;
+window.themeConfig = themeConfig;

@@ -115,14 +115,14 @@ class TypingAnimation {
         this.element = document.getElementById(elementId);
         this.texts = texts;
         this.options = {
-            typeSpeed: 100,
-            backSpeed: 50,
-            backDelay: 1000,
+            typeSpeed: 200,
+            backSpeed: 100,
+            backDelay: 1500,
             startDelay: 500,
             loop: true,
             showCursor: true,
             cursorChar: '|',
-            ...options
+            ...optio
         };
         this.currentTextIndex = 0;
         this.currentCharIndex = 0;

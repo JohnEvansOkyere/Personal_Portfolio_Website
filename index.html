@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - Data Scientist & AI Developer</title>
+    <meta name="description" content="Professional portfolio of Alex Chen - Data Scientist, ML Engineer, and AI Developer specializing in machine learning, deep learning, and data analytics.">
+    <meta name="keywords" content="data scientist, machine learning engineer, AI developer, python, tensorflow, pytorch">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
+                        },
+                        accent: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                        'hero-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"4\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-40 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container">
+                    <a href="#home" class="text-2xl font-bold text-gray-800 hover:text-primary-600 transition-colors">
+                        Alex <span class="text-gradient">Chen</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="assets/files/resume.pdf" target="_blank" class="btn-primary">
+                        <i class="fas fa-download mr-2"></i>Resume
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary-600 transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block nav-link-mobile">Home</a>
+                <a href="#about" class="block nav-link-mobile">About</a>
+                <a href="#skills" class="block nav-link-mobile">Skills</a>
+                <a href="#projects" class="block nav-link-mobile">Projects</a>
+                <a href="#experience" class="block nav-link-mobile">Experience</a>
+                <a href="#contact" class="block nav-link-mobile">Contact</a>
+                <a href="assets/files/resume.pdf" target="_blank" class="block btn-primary-mobile">
+                    <i class="fas fa-download mr-2"></i>Download Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center text-white">
+                <!-- Profile Image -->
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img src="assets/images/profile.jpg" alt="Alex Chen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="profile-placeholder">
+                            <i class="fas fa-user text-6xl text-white/80"></i>
+                        </div>
+                    </div>
+                    <div class="profile-ring"></div>
+                </div>
+                
+                <!-- Hero Content -->
+                <h1 class="hero-title">
+                    Hi, I'm <span class="text-gradient">Alex Chen</span>
+                </h1>
+                
+                <div class="hero-subtitle">
+                    <span id="typing-text" class="typing-animation"></span>
+                </div>
+                
+                <p class="hero-description">
+                    Passionate about transforming complex data into actionable insights and building intelligent systems that solve real-world problems. Specialized in machine learning, deep learning, and AI applications with 4+ years of experience.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-hero-primary">
+                        <i class="fas fa-code mr-2"></i>
+                        Explore My Work
+                    </a>
+                    <a href="#contact" class="btn-hero-secondary">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Let's Connect
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="hero-social">
+                    <a href="https://linkedin.com" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://kaggle.com" target="_blank" class="social-link">
+                        <i class="fab fa-kaggle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Turning data into intelligence, one algorithm at a time</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- About Content -->
+                <div class="fade-in-up">
+                    <div class="about-content">
+                        <h3 class="about-title">Data Scientist & AI Innovator</h3>
+                        <p class="about-text">
+                            I'm a passionate Data Scientist and AI Developer with over 4 years of experience in transforming complex datasets into actionable business insights. My expertise spans across machine learning, deep learning, natural language processing, and computer vision.
+                        </p>
+                        <p class="about-text">
+                            I thrive on solving challenging problems and have successfully deployed ML models that have improved business efficiency by up to 40% and reduced operational costs by $2M annually. My goal is to leverage cutting-edge AI technologies to create solutions that make a meaningful impact.
+                        </p>
+                        
+                        <!-- Key Points -->
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-brain text-primary-600"></i>
+                                <span>Advanced ML & Deep Learning Expertise</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-chart-line text-primary-600"></i>
+                                <span>Data Analytics & Visualization</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-robot text-primary-600"></i>
+                                <span>End-to-End AI Product Development</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-cloud text-primary-600"></i>
+                                <span>Cloud & MLOps Implementation</span>
+                            </div>
+                        </div>
+                        
+                        <div class="about-cta">
+                            <a href="assets/files/resume.pdf" target="_blank" class="btn-secondary">
+                                <i class="fas fa-file-download mr-2"></i>
+                                Download Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats & Achievements -->
+                <div class="fade-in-up">
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                            <div class="stat-description">Across various domains</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="4">0</div>
+                            <div class="stat-label">Years Experience</div>
+                            <div class="stat-description">In ML & Data Science</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="95">0</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                            <div class="stat-description">Best model performance</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="10">0</div>
+                            <div class="stat-label">Technologies</div>
+                            <div class="stat-description">Mastered & Applied</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Technologies and tools I use to bring ideas to life</p>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category fade-in-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="skill-category-title">Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">R</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML/AI Frameworks -->
+                <div class="skill-category fade-in-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="skill-category-title">ML/AI Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">spaCy</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">LightGBM</span>
+                        <span class="skill-tag">CatBoost</span>
+                        <span class="skill-tag">Optuna</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="skill-category fade-in-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="skill-category-title">Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">MLflow</span>
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">DVC</span>
+                    </div>
+                </div>
+
+                <!-- Data Tools -->
+                <div class="skill-category fade-in-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-category-title">Data Tools & Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Jupyter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Showcasing real-world applications of AI and machine learning</p>
+            </div>
+            
+            <!-- Project Filters -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="dl">Deep Learning</button>
+                <button class="filter-btn" data-filter="nlp">NLP</button>
+                <button class="filter-btn" data-filter="cv">Computer Vision</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="projects-grid">
+                <!-- Projects will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">Experience & Education</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">My professional journey and academic background</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Experience Timeline -->
+                <div class="fade-in-up">
+                    <h3 class="timeline-header">
+                        <i class="fas fa-briefcase text-primary-600 mr-3"></i>
+                        Professional Experience
+                    </h3>
+                    <div class="timeline">
+                        <!-- Experience items will be loaded by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Education & Certifications -->
+                <div class="fade-in-up">
+                    <h3 class="timeline-header">
+                        <i class="fas fa-graduation-cap text-primary-600 mr-3"></i>
+                        Education & Certifications
+                    </h3>
+                    <div class="education-grid">
+                        <!-- Education items will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="contact-background"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="section-header text-center">
+                <h2 class="section-title text-white">Let's Work Together</h2>
+                <div class="section-divider bg-white/30"></div>
+                <p class="section-subtitle text-white/90">
+                    Ready to collaborate on exciting AI projects? Let's discuss how we can solve complex problems with data.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Contact Info -->
+                <div class="fade-in-up">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>alex.chen@email.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="https://linkedin.com" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://kaggle.com" target="_blank" class="social-icon">
+                            <i class="fab fa-kaggle"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="fade-in-up">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-input form-textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-contact">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-6">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Alex Chen</h3>
+                    <p>Data Scientist & AI Developer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-kaggle"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alex Chen. All rights reserved. Built with passion for AI and Data Science.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

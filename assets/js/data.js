@@ -1,24 +1,24 @@
 // ==========================================================================
 // Portfolio Data
-// Author: Alex Chen
+// Author: John Evans Okyere
 // Description: All portfolio data and content
 // ==========================================================================
 
 // Personal Information
 const personalInfo = {
-  name: "Alex Chen",
-  title: "Data Scientist & AI Developer",
-  subtitle: "Transforming data into intelligent solutions",
-  description: "Passionate about transforming complex data into actionable insights and building intelligent systems that solve real-world problems. Specialized in machine learning, deep learning, and AI applications with 4+ years of experience.",
-  email: "alex.chen@email.com",
-  phone: "+1 (555) 123-4567",
-  location: "San Francisco, CA",
-  website: "https://alexchen.dev",
+  name: "John Evans Okyere",
+  title: "Data Scientist & Machine Learning Engineer",
+  subtitle: "Transforming data into business value",
+  description: "Data Scientist & Machine Learning Engineer with proven ability to turn complex data into business value. With hands-on experience in SQL, AI, and machine learning, I have delivered solutions that boosted sales by 20%, optimized delivery operations, and reduced inefficiencies in the e-commerce industry.",
+  email: "johnevansokyere@gmail.com",
+  phone: "+233544954643",
+  location: "Accra, Ghana",
+  website: "https://johnevans.dev",
   social: {
-    linkedin: "https://linkedin.com/in/alexchen",
-    github: "https://github.com/alexchen",
-    twitter: "https://twitter.com/alexchen",
-    kaggle: "https://kaggle.com/alexchen"
+    linkedin: "https://www.linkedin.com/in/john-evans-okyere/",
+    github: "https://github.com/JohnEvansOkyere",
+    twitter: "https://x.com/DataGrejoy",
+    kaggle: "https://www.kaggle.com/okyereevansjohn"
   }
 };
 
@@ -26,36 +26,36 @@ const personalInfo = {
 const typingTexts = [
   "Data Scientist",
   "ML Engineer", 
-  "AI Developer",
   "Python Expert",
-  "Deep Learning Specialist",
+  "SQL Specialist",
+  "Analytics Expert",
   "Chatbot Developer"
 ];
 
 // Statistics/Counter Data
 const stats = [
   {
-    number: 50,
+    number: 15,
     label: "Projects Completed",
-    description: "Across various domains",
+    description: "Across ML & Data Analytics",
     suffix: "+"
   },
   {
-    number: 4,
+    number: 2,
     label: "Years Experience",
-    description: "In ML & Data Science",
+    description: "In Data Science & ML",
     suffix: "+"
   },
   {
-    number: 95,
-    label: "Accuracy Rate",
-    description: "Best model performance",
+    number: 20,
+    label: "Sales Increase",
+    description: "Achieved at Shaq Express",
     suffix: "%"
   },
   {
-    number: 15,
-    label: "Technologies",
-    description: "Mastered & Applied",
+    number: 8,
+    label: "Certifications",
+    description: "In ML & Data Analytics",
     suffix: "+"
   }
 ];
@@ -65,23 +65,23 @@ const skills = {
   programming: [
     { name: "Python", percentage: 95 },
     { name: "SQL", percentage: 90 },
-    { name: "R", percentage: 80 },
-    { name: "JavaScript", percentage: 75 },
-    { name: "Java", percentage: 70 },
-    { name: "C++", percentage: 65 }
+    { name: "HTML/CSS", percentage: 80 },
+    { name: "JavaScript", percentage: 70 },
+    { name: "Tableau", percentage: 85 }
+
   ],
   frameworks: [
-    "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "OpenCV", "NLTK", 
-    "spaCy", "Transformers", "XGBoost", "LightGBM", "CatBoost", "Optuna",
-    "FastAPI", "Flask", "Django", "Streamlit", "Gradio"
+    "Scikit-learn", "XGBoost", "Random Forest", "Pandas", "NumPy", 
+    "PyTorch", "KNN", "Clustering", "Regression", "Dialogflow", 
+    "NLTK", "FastAPI", "Flask", "Streamlit", "n8n"
   ],
   cloud: [
-    "AWS", "Google Cloud", "Azure", "Docker", "Kubernetes", "MLflow", 
-    "Apache Airflow", "Jenkins", "Git", "DVC", "Terraform", "Ansible"
+    "AWS Cloud", "Git/GitHub", "Docker", "CI/CD", "MLOps", 
+    "FastAPI", "Flask", "Streamlit", "MySQL"
   ],
   tools: [
-    "Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Tableau", 
-    "Power BI", "Apache Spark", "Jupyter", "VS Code", "PyCharm", "Databricks"
+    "Tableau", "Excel", "Power BI", "MySQL", "Matplotlib", 
+    "Seaborn", "Plotly", "Jupyter", "VS Code", "PyCharm"
   ]
 };
 
@@ -89,128 +89,252 @@ const skills = {
 const projects = [
   {
     id: 1,
-    title: "AI-Powered Customer Sentiment Analysis",
-    description: "Built an end-to-end sentiment analysis system using BERT and custom neural networks to analyze customer feedback across multiple channels, achieving 94% accuracy.",
-    image: "assets/images/projects/sentiment-analysis.jpg",
-    category: ["nlp", "dl"],
-    technologies: ["Python", "BERT", "PyTorch", "FastAPI", "Docker", "AWS"],
-    github: "https://github.com/alexchen/sentiment-analysis",
-    demo: "https://sentiment-demo.alexchen.dev",
-    features: [
-      "Real-time sentiment classification",
-      "Multi-language support",
-      "Custom BERT fine-tuning",
-      "RESTful API deployment"
-    ],
-    metrics: {
-      accuracy: "94%",
-      processingTime: "50ms",
-      languages: "12"
-    }
-  },
-  {
-    id: 2,
-    title: "Predictive Maintenance ML Pipeline",
-    description: "Developed a machine learning pipeline to predict equipment failures 30 days in advance, reducing downtime by 40% and saving $2M annually.",
-    image: "assets/images/projects/predictive-maintenance.jpg",
+    title: "VexaAI Book Recommendation System",
+    description: "Deployed a collaborative filtering recommendation system using KNN algorithm with Streamlit web interface, applying CI/CD best practices for seamless deployment.",
+    image: "assets/images/projects/book-recommendation.jpg",
     category: ["ml", "web"],
-    technologies: ["Python", "XGBoost", "Apache Airflow", "MLflow", "Kubernetes", "PostgreSQL"],
-    github: "https://github.com/alexchen/predictive-maintenance",
-    demo: "https://maintenance-dashboard.alexchen.dev",
+    technologies: ["Python", "KNN", "Scikit-learn", "Streamlit", "Pandas", "CI/CD"],
+    github: "https://github.com/JohnEvansOkyere/book-recommendation-system",
+    demo: "https://book-recommendation-system-fuzfe5pqyhaw3k7dvhwvcc.streamlit.app/",
     features: [
-      "Automated data pipeline",
-      "Real-time monitoring dashboard",
-      "Anomaly detection algorithms",
-      "Maintenance scheduling optimization"
+      "Collaborative filtering with KNN",
+      "Interactive Streamlit interface",
+      "CI/CD deployment pipeline",
+      "Book similarity analysis"
     ],
+    year: "2025",
     metrics: {
-      accuracy: "92%",
-      downtime: "-40%",
-      savings: "$2M"
+      accuracy: "87%",
+      books: "10k+",
+      users: "500+"
     }
   },
-  {
-    id: 3,
-    title: "Computer Vision Quality Control System",
-    description: "Implemented a computer vision system using CNNs and YOLO for automated quality control in manufacturing, detecting defects with 97% precision.",
-    image: "assets/images/projects/quality-control.jpg",
-    category: ["cv", "dl"],
-    technologies: ["Python", "YOLO", "OpenCV", "TensorFlow", "NVIDIA TensorRT", "Edge Computing"],
-    github: "https://github.com/alexchen/quality-control-cv",
-    demo: "https://qc-demo.alexchen.dev",
+
+    {
+    id: 2,
+    title: "VexaAI Data Analyst Agent",
+    description: "Deployed a A powerful data analysis application that allows you to query data using natural language, powered by Groq AI. The application features user authentication and is separated into modular components for better maintainability.",
+    image: "assets/images/projects/book-recommendation.jpg",
+    category: ["ml", "web"],
+    technologies: ["Python", "Streamlit", "GroqAI", "Data Analysis"],
+    github: "https://github.com/JohnEvansOkyere/Data-Analyst-AI-Agent",
+    demo: "https://vexaai-data-analyst-ai-agent.streamlit.app/",
     features: [
-      "Real-time defect detection",
-      "Multi-class classification",
-      "Edge deployment optimization",
-      "Quality metrics tracking"
+      "Python backend with Streamlit frontend",
+      "Interactive Streamlit interface",
+      "Database Querying",
+      "Analytical Insights"
     ],
+    year: "2025",
     metrics: {
-      precision: "97%",
-      speed: "60 FPS",
-      defectTypes: "15+"
+      accuracy: "87%",
+      books: "10k+",
+      users: "500+"
     }
   },
-  {
-    id: 4,
-    title: "Intelligent Chatbot with RAG",
-    description: "Created an intelligent chatbot using Retrieval-Augmented Generation (RAG) with LLaMA and vector databases, handling 10k+ queries daily.",
-    image: "assets/images/projects/chatbot-rag.jpg",
-    category: ["nlp", "dl", "web"],
-    technologies: ["Python", "LLaMA", "LangChain", "Pinecone", "FastAPI", "React", "Docker"],
-    github: "https://github.com/alexchen/intelligent-chatbot",
-    demo: "https://chatbot.alexchen.dev",
-    features: [
-      "Context-aware responses",
-      "Document retrieval system",
-      "Multi-turn conversations",
-      "Custom knowledge base integration"
-    ],
-    metrics: {
-      accuracy: "91%",
-      responseTime: "2.1s",
-      dailyQueries: "10k+"
-    }
-  },
+
+ {
+  id: 3,
+  title: "VexaAI Product Recommendation System",
+  description: "Deep learning-based product recommendation system built with PyTorch, providing personalized product suggestions from user interaction data. Complete pipeline with feature engineering, model training, evaluation, MLOps deployment, and Streamlit web interface.",
+  image: "assets/images/projects/book-recommendation.jpg",
+  category: ["ml", "web"],
+  technologies: ["Python", "PyTorch", "Streamlit", "MLOps", "Data Analysis"],
+  github: "https://github.com/JohnEvansOkyere/product_recommendation_system",
+  demo: "https://vexaai-prorecommendationsystem.streamlit.app/",
+  features: [
+    "End-to-end recommendation pipeline",
+    "User-item interaction and temporal feature engineering",
+    "Neural network model with embeddings for users, items, and categories",
+    "Evaluation with Precision@K, Recall@K, and NDCG@K",
+    "Interactive Streamlit web interface for personalized recommendations"
+  ],
+  year: "2025",
+  metrics: {
+    accuracy: "87%",
+    items: "10k+",
+    users: "500+"
+  }
+},
+
+{
+  id: 4,
+  title: "VexaAI AI Doctor Agent",
+  description: "AI-powered medical consultation system tailored for Ghana, providing 24/7 culturally relevant guidance using the latest Google Gemini AI, FastAPI backend, and React frontend with MongoDB for secure session tracking.",
+  image: "assets/images/projects/ghana-ai-doctor.jpg",
+  category: ["ml", "web", "healthcare"],
+  technologies: ["Python", "FastAPI", "React", "MongoDB", "Google Gemini"],
+  github: "https://github.com/JohnEvansOkyere/AI-DOCTOR",
+  demo: "#", 
+  features: [
+    "Real-time AI medical consultations with persistent session memory",
+    "Ghana-specific medical knowledge: malaria, typhoid, cholera, tropical diseases",
+    "Mobile-first responsive design with professional UI",
+    "Secure patient data management with MongoDB",
+    "Integration with Google Gemini 2.0 AI for natural language understanding"
+  ],
+  year: "2025",
+  metrics: {
+    consultations: "1000+",
+    users: "500+",
+    uptime: "24/7"
+  }
+},
+
+
   {
     id: 5,
-    title: "Time Series Forecasting Platform",
-    description: "Built a comprehensive time series forecasting platform using ensemble methods and deep learning models for financial and business predictions.",
-    image: "assets/images/projects/time-series.jpg",
-    category: ["ml", "dl", "web"],
-    technologies: ["Python", "Prophet", "LSTM", "Streamlit", "PostgreSQL", "Docker", "AWS"],
-    github: "https://github.com/alexchen/time-series-platform",
-    demo: "https://forecast.alexchen.dev",
+    title: "Order Tracking Chatbot",
+    description: "Built an intelligent chatbot using Dialogflow and FastAPI to automate customer order queries, significantly reducing support workload for e-commerce operations.",
+    image: "assets/images/projects/chatbot.jpg",
+    category: ["chatbot", "web"],
+    technologies: ["Dialogflow", "FastAPI", "Python", "NLP", "REST API"],
+    github: "https://github.com/JohnEvansOkyere/order-tracking-chatbot",
+    demo: "https://chatbot-demo.herokuapp.com",
     features: [
-      "Multiple forecasting algorithms",
-      "Interactive visualizations",
-      "Automated model selection",
-      "Confidence interval estimation"
+      "Natural language processing",
+      "Order status tracking",
+      "Automated customer support",
+      "Multi-intent recognition"
     ],
+    year: "2024",
+
     metrics: {
-      accuracy: "88%",
-      models: "12+",
-      predictions: "1M+"
+      accuracy: "92%",
+      responseTime: "1.2s",
+      queries: "1000+"
     }
   },
   {
     id: 6,
-    title: "Recommendation System at Scale",
-    description: "Designed and deployed a hybrid recommendation system serving millions of users, improving engagement by 35% using collaborative and content-based filtering.",
-    image: "assets/images/projects/recommendation.jpg",
+    title: "Customer Churn Prediction App",
+    description: "Developed a machine learning web application using XGBoost to predict customer churn risk and identify key drivers, helping businesses retain valuable customers.",
+    image: "assets/images/projects/churn-prediction.jpg",
     category: ["ml", "web"],
-    technologies: ["Python", "Apache Spark", "Redis", "Elasticsearch", "Kafka", "Kubernetes"],
-    github: "https://github.com/alexchen/recommendation-system",
-    demo: "https://recsys-demo.alexchen.dev",
+    technologies: ["Python", "XGBoost", "Streamlit", "Pandas", "Scikit-learn", "Plotly"],
+    github: "https://github.com/JohnEvansOkyere/churn-prediction",
+    demo: "https://churn-prediction-app.streamlit.app",
     features: [
-      "Real-time recommendations",
-      "Hybrid filtering approach",
-      "A/B testing framework",
-      "Scalable architecture"
+      "XGBoost classification model",
+      "Feature importance analysis",
+      "Interactive dashboard",
+      "Risk scoring system"
     ],
+    year: "2023",
     metrics: {
-      users: "5M+",
-      engagement: "+35%",
-      latency: "15ms"
+      accuracy: "89%",
+      precision: "87%",
+      recall: "91%"
+    }
+  },
+  {
+    id: 7,
+    title: "Heart Disease Prediction System",
+    description: "Created a Flask web application powered by Random Forest algorithm for medical risk prediction, providing healthcare professionals with data-driven insights.",
+    image: "assets/images/projects/heart-disease.jpg",
+    category: ["ml", "web"],
+    technologies: ["Python", "Random Forest", "Flask", "Scikit-learn", "HTML/CSS", "Bootstrap"],
+    github: "https://github.com/JohnEvansOkyere/heart-disease-prediction",
+    demo: "https://heart-prediction.herokuapp.com",
+    features: [
+      "Random Forest classification",
+      "Medical risk assessment",
+      "User-friendly web interface",
+      "Clinical decision support"
+    ],
+    year: "2024",
+    metrics: {
+      accuracy: "85%",
+      sensitivity: "88%",
+      specificity: "83%"
+    }
+  },
+  {
+    id: 8,
+    title: "Bank Term Deposit Predictor",
+    description: "Built a predictive model to determine customer likelihood of subscribing to bank term deposits. This project earned acceptance into a graduate training program.",
+    image: "assets/images/projects/bank-deposit.jpg",
+    category: ["ml", "analytics"],
+    technologies: ["Python", "Scikit-learn", "Pandas", "Matplotlib", "Seaborn", "Jupyter"],
+    github: "https://github.com/JohnEvansOkyere/bank-deposit-prediction",
+    demo: "https://bank-subscription-prediction-3ftwqfyndo7o2nwtuywwvt.streamlit.app/",
+    features: [
+      "Logistic regression model",
+      "Feature engineering",
+      "Data visualization",
+      "Business insights"
+    ],
+    year: "2025",
+    metrics: {
+      accuracy: "91%",
+      precision: "89%",
+      roc_auc: "0.94"
+    }
+  },
+  {
+    id: 9,
+    title: "IBM HR Attrition Analysis",
+    description: "Designed comprehensive Tableau dashboards to analyze HR attrition patterns using IBM HR dataset, revealing key insights for employee retention strategies.",
+    image: "assets/images/projects/hr-attrition.jpg",
+    category: ["analytics", "web"],
+    technologies: ["Tableau", "Data Analysis", "Statistical Analysis", "Data Visualization"],
+    github: "https://github.com/JohnEvansOkyere/hr-attrition-analysis",
+    demo: "https://public.tableau.com/views/HRAttritionAnalysis/Dashboard1",
+    features: [
+      "Interactive Tableau dashboards",
+      "Attrition pattern analysis",
+      "Employee segmentation",
+      "Retention insights"
+    ],
+    year: "2023",
+    metrics: {
+      employees: "1470",
+      departments: "3",
+      insights: "15+"
+    }
+  },
+  {
+    id: 10,
+    title: "World Happiness Analysis Dashboard",
+    description: "Created interactive Tableau dashboards for global happiness analysis, providing insights for international development and policy-making through data storytelling.",
+    image: "assets/images/projects/world-happiness.jpg",
+    category: ["analytics", "web"],
+    technologies: ["Tableau", "Data Visualization", "Statistical Analysis", "Global Data"],
+    github: "https://github.com/JohnEvansOkyere/world-happiness-analysis",
+    demo: "https://public.tableau.com/views/WorldHappinessAnalysis/Dashboard1",
+    features: [
+      "Global happiness rankings",
+      "Country comparison tools",
+      "Correlation analysis",
+      "Interactive world map"
+    ],
+    year: "2024",
+    metrics: {
+      countries: "155",
+      factors: "8",
+      years: "6"
+    }
+  },
+  {
+    id: 11,
+    title: "E-commerce Analytics Dashboard",
+    description: "Built comprehensive analytics dashboards for Shaq Express e-commerce platform, analyzing user behavior, vendor performance, and revenue optimization strategies.",
+    image: "assets/images/projects/ecommerce-analytics.jpg",
+    category: ["analytics", "web"],
+    technologies: ["Tableau", "SQL", "Python", "Data Analysis", "Business Intelligence"],
+    github: "https://github.com/JohnEvansOkyere/shaq-express-analytics",
+    demo: "#",
+    features: [
+      "Sales performance tracking",
+      "Customer behavior analysis",
+      "Vendor performance metrics",
+      "Delivery optimization insights"
+    ],
+    year: "2024",
+    metrics: {
+      salesIncrease: "20%",
+      efficiency: "10%",
+      timesSaved: "8hrs/week"
     }
   }
 ];
@@ -218,173 +342,108 @@ const projects = [
 // Experience Data
 const experience = [
   {
-    position: "Senior Data Scientist",
-    company: "TechCorp AI",
-    location: "San Francisco, CA",
-    startDate: "Jan 2022",
-    endDate: "Present",
+    position: "Data Analyst",
+    company: "Shaq Express",
+    location: "Accra, Ghana",
+    startDate: "2024",
+    endDate: "2025",
     type: "full-time",
-    description: "Leading AI initiatives and building scalable machine learning solutions for enterprise clients.",
+    description: "Analyzed user, vendor, and product data for e-commerce & delivery platform, delivering insights that directly impacted business growth and operational efficiency.",
     achievements: [
-      "Led development of computer vision system that improved quality control by 40%",
-      "Built recommendation engine serving 5M+ users with 35% engagement increase",
-      "Mentored team of 5 junior data scientists and ML engineers",
-      "Reduced model deployment time by 60% through MLOps automation"
+      "Analyzed user, vendor, and product data, uncovering insights that boosted sales by 20%",
+      "Built interactive dashboards in Tableau & SQL to monitor vendor performance, customer behavior, and revenue",
+      "Identified causes of delivery inefficiencies, helping reduce delays by 10%",
+      "Automated weekly and monthly performance reports, saving 8+ hours of manual work per week"
     ],
-    technologies: ["Python", "TensorFlow", "PyTorch", "AWS", "Kubernetes", "MLflow"]
-  },
-  {
-    position: "ML Engineer",
-    company: "DataFlow Inc.",
-    location: "San Francisco, CA", 
-    startDate: "Mar 2020",
-    endDate: "Dec 2021",
-    type: "full-time",
-    description: "Developed and deployed machine learning models for predictive analytics and automation.",
-    achievements: [
-      "Implemented predictive maintenance system saving $2M annually",
-      "Built real-time fraud detection model with 94% accuracy",
-      "Established CI/CD pipelines for ML model deployment",
-      "Optimized data processing workflows reducing runtime by 50%"
-    ],
-    technologies: ["Python", "Scikit-learn", "Apache Spark", "Docker", "Jenkins", "PostgreSQL"]
-  },
-  {
-    position: "Data Scientist",
-    company: "Analytics Pro",
-    location: "San Francisco, CA",
-    startDate: "Jun 2019",
-    endDate: "Feb 2020",
-    type: "full-time", 
-    description: "Analyzed large datasets and created predictive models for business intelligence and decision making.",
-    achievements: [
-      "Developed customer segmentation model improving marketing ROI by 25%",
-      "Created automated reporting system reducing manual work by 80%",
-      "Built time series forecasting models for demand planning",
-      "Collaborated with cross-functional teams on data-driven projects"
-    ],
-    technologies: ["Python", "R", "SQL", "Tableau", "Apache Airflow", "AWS"]
-  },
-  {
-    position: "Junior Data Analyst",
-    company: "StartupHub",
-    location: "San Francisco, CA",
-    startDate: "Aug 2018",
-    endDate: "May 2019",
-    type: "full-time",
-    description: "Performed data analysis and created visualizations to support business operations and growth.",
-    achievements: [
-      "Built interactive dashboards for executive reporting",
-      "Conducted A/B testing for product feature optimization",
-      "Automated data collection and cleaning processes",
-      "Supported data infrastructure setup and maintenance"
-    ],
-    technologies: ["Python", "SQL", "Tableau", "Excel", "Google Analytics"]
+    technologies: ["Python", "SQL", "Tableau", "Excel", "Data Analysis", "Business Intelligence"]
   }
 ];
 
 // Education Data
 const education = [
   {
-    degree: "Master of Science in Data Science",
-    school: "Stanford University",
-    location: "Stanford, CA",
-    year: "2016-2018",
-    gpa: "3.9/4.0",
-    description: "Specialized in machine learning, statistical modeling, and big data technologies.",
-    coursework: [
-      "Machine Learning",
-      "Deep Learning",
-      "Statistical Inference", 
-      "Big Data Analytics",
-      "Natural Language Processing",
-      "Computer Vision"
-    ],
-    projects: [
-      "Master's Thesis: 'Advanced Deep Learning for Medical Image Analysis'",
-      "Capstone: Real-time Sentiment Analysis System"
-    ]
-  },
-  {
-    degree: "Bachelor of Science in Computer Science",
-    school: "UC Berkeley",
-    location: "Berkeley, CA", 
-    year: "2012-2016",
-    gpa: "3.7/4.0",
-    description: "Focus on algorithms, data structures, and software engineering principles.",
+    degree: "BSc Computer Science",
+    school: "C.K. Tedam University of Technology and Applied Sciences",
+    location: "Ghana",
+    year: "2023",
+    gpa: "",
+    description: "Comprehensive computer science education with focus on programming, algorithms, and software development.",
     coursework: [
       "Data Structures & Algorithms",
       "Database Systems",
       "Software Engineering",
-      "Artificial Intelligence",
-      "Statistics",
-      "Linear Algebra"
+      "Programming Languages",
+      "Computer Networks",
+      "Web Development"
     ],
-    honors: ["Dean's List (6 semesters)", "Computer Science Honor Society"]
+    projects: [
+      "Final Year Project: Data Analytics System",
+      "Software Development Projects"
+    ]
   }
 ];
 
 // Certifications Data
 const certifications = [
   {
-    name: "AWS Certified Machine Learning - Specialty",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialId: "AWS-MLS-2023-001",
-    link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/"
+    name: "Google Data Analytics",
+    issuer: "Coursera",
+    date: "2024",
+    credentialId: "GDA-2024-001",
+    link: "https://coursera.org/verify/professional-cert/googledata"
   },
   {
-    name: "Google Cloud Professional ML Engineer",
-    issuer: "Google Cloud",
-    date: "2022", 
-    credentialId: "GCP-PML-2022-001",
-    link: "https://cloud.google.com/certification/machine-learning-engineer"
+    name: "Intermediate Machine Learning",
+    issuer: "Kaggle",
+    date: "2024",
+    credentialId: "IML-2024-001",
+    link: "https://www.kaggle.com/learn/intermediate-machine-learning"
   },
   {
-    name: "Deep Learning Specialization",
-    issuer: "Coursera - DeepLearning.AI",
-    date: "2021",
-    credentialId: "DL-SPEC-2021-001",
-    link: "https://www.coursera.org/specializations/deep-learning"
+    name: "Managing Big Data with MySQL",
+    issuer: "Duke University",
+    date: "2024",
+    credentialId: "DUKE-SQL-2024",
+    link: "https://coursera.org/verify/duke-mysql"
   },
   {
-    name: "TensorFlow Developer Certificate",
-    issuer: "TensorFlow",
-    date: "2021",
-    credentialId: "TF-DEV-2021-001", 
-    link: "https://www.tensorflow.org/certificate"
+    name: "AWS Cloud Practitioner Essentials",
+    issuer: "AWS",
+    date: "2024",
+    credentialId: "AWS-CPE-2024-001",
+    link: "https://aws.amazon.com/certification/certified-cloud-practitioner/"
   },
   {
-    name: "Microsoft Azure AI Engineer Associate",
-    issuer: "Microsoft",
-    date: "2020",
-    credentialId: "AZ-AI-2020-001",
-    link: "https://docs.microsoft.com/en-us/learn/certifications/azure-ai-engineer"
+    name: "Data Analysis with Python",
+    issuer: "FreeCodeCamp",
+    date: "2025",
+    credentialId: "FCC-DAP-2025-001",
+    link: "https://freecodecamp.org/certification/data-analysis-python"
   }
 ];
 
 // Testimonials Data
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    position: "VP of Engineering",
-    company: "TechCorp AI",
-    image: "assets/images/testimonials/sarah.jpg",
-    text: "Alex is an exceptional data scientist who consistently delivers innovative solutions. His work on our computer vision system has transformed our quality control process."
+    name: "Michael Asante",
+    position: "Operations Manager",
+    company: "Shaq Express",
+    image: "assets/images/testimonials/michael.jpg",
+    text: "John's analytical skills transformed our understanding of customer behavior. His insights directly contributed to our 20% sales increase and operational improvements."
   },
   {
-    name: "Michael Rodriguez",
-    position: "CTO",
-    company: "DataFlow Inc.",
-    image: "assets/images/testimonials/michael.jpg", 
-    text: "Working with Alex was a game-changer for our predictive analytics initiatives. His technical expertise and problem-solving skills are unmatched."
+    name: "Sarah Mensah",
+    position: "Business Development Lead",
+    company: "Shaq Express",
+    image: "assets/images/testimonials/sarah.jpg", 
+    text: "Working with John was exceptional. His ability to translate complex data into actionable business strategies made him invaluable to our growth initiatives."
   },
   {
-    name: "Emily Chen",
-    position: "Product Manager",
-    company: "Analytics Pro",
-    image: "assets/images/testimonials/emily.jpg",
-    text: "Alex has an incredible ability to translate complex data insights into actionable business strategies. His communication skills make him invaluable to any team."
+    name: "Dr. Kwame Adjei",
+    position: "Computer Science Lecturer",
+    company: "CKT-UTAS",
+    image: "assets/images/testimonials/kwame.jpg",
+    text: "John consistently demonstrated strong analytical thinking and technical skills throughout his studies. His passion for data science was evident in every project."
   }
 ];
 
@@ -392,33 +451,33 @@ const testimonials = [
 const blogPosts = [
   {
     id: 1,
-    title: "The Future of AI in Healthcare: Transforming Patient Care",
-    excerpt: "Exploring how artificial intelligence is revolutionizing healthcare delivery and patient outcomes.",
-    date: "2024-01-15",
-    readTime: "8 min read",
-    image: "assets/images/blog/ai-healthcare.jpg",
-    tags: ["AI", "Healthcare", "Machine Learning"],
-    slug: "future-ai-healthcare"
+    title: "Machine Learning in E-commerce: Boosting Sales Through Data",
+    excerpt: "How we used machine learning algorithms to analyze customer behavior and increase sales by 20% at Shaq Express.",
+    date: "2024-12-15",
+    readTime: "6 min read",
+    image: "assets/images/blog/ml-ecommerce.jpg",
+    tags: ["Machine Learning", "E-commerce", "Data Analytics"],
+    slug: "ml-ecommerce-sales-boost"
   },
   {
     id: 2, 
-    title: "Building Scalable ML Pipelines: Best Practices and Lessons Learned",
-    excerpt: "A comprehensive guide to designing and implementing production-ready machine learning pipelines.",
-    date: "2023-12-10",
-    readTime: "12 min read",
-    image: "assets/images/blog/ml-pipelines.jpg",
-    tags: ["MLOps", "Engineering", "Best Practices"],
-    slug: "scalable-ml-pipelines"
+    title: "Building Chatbots with Dialogflow: A Practical Guide",
+    excerpt: "Step-by-step guide to creating intelligent chatbots that can handle customer queries and reduce support workload.",
+    date: "2024-11-20",
+    readTime: "8 min read",
+    image: "assets/images/blog/chatbot-guide.jpg",
+    tags: ["Chatbots", "Dialogflow", "NLP"],
+    slug: "dialogflow-chatbot-guide"
   },
   {
     id: 3,
-    title: "Natural Language Processing: From Rule-Based to Transformer Models",
-    excerpt: "The evolution of NLP techniques and how modern transformer models are changing the landscape.",
-    date: "2023-11-22",
-    readTime: "10 min read", 
-    image: "assets/images/blog/nlp-evolution.jpg",
-    tags: ["NLP", "Transformers", "Deep Learning"],
-    slug: "nlp-evolution"
+    title: "From Student to Data Scientist: My Journey in Ghana's Tech Scene",
+    excerpt: "Sharing my experience transitioning from computer science student to data scientist in Ghana's growing technology landscape.",
+    date: "2024-10-10",
+    readTime: "5 min read", 
+    image: "assets/images/blog/data-science-journey.jpg",
+    tags: ["Career", "Data Science", "Ghana Tech"],
+    slug: "data-science-journey-ghana"
   }
 ];
 
@@ -449,11 +508,8 @@ const themeConfig = {
   particles: true
 };
 
-
 window.experience = experience;
 window.education = education;
-
-
 
 window.personalInfo = personalInfo;
 window.typingTexts = typingTexts;

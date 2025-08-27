@@ -1,6 +1,6 @@
 // ==========================================================================
 // Animation System
-// Author: Alex Chen
+// Author: John Evans Okyere
 // Description: Advanced animations and visual effects for portfolio
 // ==========================================================================
 
@@ -777,6 +777,62 @@ class LoadingProgress {
     }
 }
 
+
+// ==========================================================================
+// Counter Animation
+// ==========================================================================
+class CounterAnimation {
+    constructor() {
+        this.counters = document.querySelectorAll('.stat-number[data-count]');
+        this.isAnimated = false;
+        this.init();
+    }
+
+    init() {
+        if (!this.counters.length) return;
+        this.observeStatsSection();
+    }
+
+    observeStatsSection() {
+        const statsSection = document.querySelector('.stats-container');
+        if (!statsSection) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !this.isAnimated) {
+                    this.animateCounters();
+                    this.isAnimated = true; // only once
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(statsSection);
+    }
+
+    animateCounters() {
+        this.counters.forEach(counter => {
+            const target = parseInt(counter.dataset.count, 10);
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+
+            updateCounter();
+        });
+    }
+}
+
+
+
 // ==========================================================================
 // Initialize All Animations
 // ==========================================================================
@@ -792,6 +848,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new MouseEffects();
     new FloatingAnimation();
     new TextAnimations();
+    new CounterAnimation();
+
     
     // Initialize typing animation for hero section
     const typingTexts = [

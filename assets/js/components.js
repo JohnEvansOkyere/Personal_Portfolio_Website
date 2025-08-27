@@ -1,6 +1,6 @@
 // ==========================================================================
 // Component Functionality
-// Author: Alex Chen
+// Author: John Evans Okyere
 // Description: Individual component handlers and utilities
 // ==========================================================================
 

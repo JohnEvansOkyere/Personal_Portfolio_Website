@@ -252,7 +252,7 @@ function initializeProjects() {
                     ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                 </div>
                 <div class="project-meta">
-                    <span><i class="fas fa-calendar-alt mr-1"></i>2023</span>
+                    <span><i class="fas fa-calendar-alt mr-1"></i>Date: ${project.year}</span>
                     <span><i class="fas fa-code mr-1"></i>${project.technologies.length} Technologies</span>
                 </div>
             </div>

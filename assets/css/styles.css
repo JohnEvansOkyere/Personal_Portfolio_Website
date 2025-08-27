@@ -1,6 +1,6 @@
 /* ==========================================================================
    Professional Portfolio CSS
-   Author: Alex Chen
+   Author: John Evans Okyere
    Description: Main stylesheet with modern, professional styling
    ========================================================================== */
 
@@ -154,7 +154,6 @@ body {
    Navigation Styles
    ========================================================================== */
 #navbar {
-  
 
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);

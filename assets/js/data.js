@@ -484,9 +484,9 @@ const blogPosts = [
 // Contact Form Configuration
 const contactConfig = {
   emailService: "EmailJS", // or your preferred service
-  serviceId: "service_your_id",
-  templateId: "template_your_id",
-  publicKey: "your_public_key"
+  serviceId: "service_wpa4e28",
+  templateId: "template_yja8nnz",
+  publicKey: "qfm15fP7kAwGRCLID"
 };
 
 // Animation Configuration

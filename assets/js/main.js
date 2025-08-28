@@ -630,3 +630,188 @@ function initializeTimeline() {
 
 // Keep the rest of your functions...
 // ... (other functions remain the same)
+
+
+// ==========================================================================
+// Contact Form
+// ==========================================================================
+// ==========================================================================
+// Contact Form
+// ==========================================================================
+function initializeContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+        submitBtn.disabled = true;
+        
+        try {
+            // Send email using EmailJS
+            const response = await emailjs.sendForm(
+                contactConfig.serviceId,
+                contactConfig.templateId,
+                contactForm, // Pass the entire form element
+                contactConfig.publicKey
+            );
+
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Success
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            contactForm.reset();
+            
+        } catch (error) {
+            // Error
+            console.error('FAILED...', error);
+            showNotification('Failed to send message. Please try again.', 'error');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+// ==========================================================================
+// Parallax Effects
+// ==========================================================================
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('.parallax-element');
+    
+    function updateParallax() {
+        const scrollTop = window.pageYOffset;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.getAttribute('data-speed') || 0.5;
+            const yPos = -(scrollTop * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    }
+    
+    window.addEventListener('scroll', updateParallax);
+}
+
+// ==========================================================================
+// Smooth Scroll
+// ==========================================================================
+function initializeSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80; // Account for navbar
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ==========================================================================
+// Utility Functions
+// ==========================================================================
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+    `;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Auto remove
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// ==========================================================================
+// Performance Optimizations
+// ==========================================================================
+
+// Optimize scroll events
+const optimizedScrollHandler = throttle(() => {
+    // Handle scroll events here
+}, 16); // ~60fps
+
+window.addEventListener('scroll', optimizedScrollHandler);
+
+// Lazy load images
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading
+initializeLazyLoading();

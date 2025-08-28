@@ -584,6 +584,26 @@
     <script src="assets/js/data.js"></script>
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/components.js"></script>
+
+        <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key
+        (function() {
+            emailjs.init("qfm15fP7kAwGRCLID");
+        })();
+    </script>
+
+
     <script src="assets/js/main.js"></script>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+    intent="WELCOME"
+    chat-title="JohnEvansOkyere"
+    agent-id="68109975-3fce-4a76-81fb-65ec81a4cea6"
+    language-code="en"
+    ></df-messenger>
+
 </body>
 </html>

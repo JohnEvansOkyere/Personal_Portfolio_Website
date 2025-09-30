@@ -28,6 +28,7 @@ const typingTexts = [
   "ML Engineer", 
   "Python Expert",
   "SQL Specialist",
+  "n8n Specialist",
   "Analytics Expert",
   "Chatbot Developer"
 ];
@@ -63,10 +64,10 @@ const stats = [
 // Skills Data
 const skills = {
   programming: [
-    { name: "Python", percentage: 95 },
+    { name: "Python", percentage: 90 },
     { name: "SQL", percentage: 90 },
-    { name: "HTML/CSS", percentage: 80 },
-    { name: "JavaScript", percentage: 70 },
+    { name: "n8n", percentage: 80 },
+    { name: "HTML/CSS/JavaScript", percentage: 70 },
     { name: "Tableau", percentage: 85 }
 
   ],
@@ -77,16 +78,63 @@ const skills = {
   ],
   cloud: [
     "AWS Cloud", "Git/GitHub", "Docker", "CI/CD", "MLOps", 
-    "FastAPI", "Flask", "Streamlit", "MySQL"
+    "FastAPI", "Flask", "Streamlit", "MySQL", "upabase"
   ],
   tools: [
-    "Tableau", "Excel", "Power BI", "MySQL", "Matplotlib", 
+    "VS Code","Tableau", "Excel", "MySQL", "Matplotlib", 
     "Seaborn", "Plotly", "Jupyter", "VS Code", "PyCharm"
   ]
 };
 
 // Projects Data
 const projects = [
+  {
+  id: 3,
+  title: "VexaAI RAG Chat PDF(Render, Vercel and supabase)",
+  description: "Intelligent PDF document analysis system using Retrieval-Augmented Generation (RAG) with multi-provider LLM support. Features user authentication, document processing, and natural language querying of PDF content.",
+  image: "assets/images/rag.png", 
+  category: ["ml", "web"],
+  technologies: ["Python", "FastAPI", "Next.js", "Supabase", "OpenAI", "Grok AI", "Vector Search", "RAG"],
+  github: "https://github.com/JohnEvansOkyere/Chat_PDF_RAG_APP",
+  demo: "https://chat-pdf-rag-qdgbu9jhn-john-evans-okyeres-projects.vercel.app/",
+  features: [
+    "RAG pipeline with vector search",
+    "Multi-provider LLM support (Grok, Claude, OpenAI)",
+    "JWT authentication with Supabase",
+    "Document chunking and embeddings",
+    "Real-time chat interface"
+  ],
+  year: "2025",
+  metrics: {
+    accuracy: "92%",
+    documents: "Unlimited",
+    users: "Active"
+  }
+},
+
+{
+  id: 2,
+  title: "VexaAI Intelligent RAG Chatbot System(n8n, supabase, lovable)",
+  description: "Built a production-ready Retrieval-Augmented Generation (RAG) chatbot with automated document processing pipeline and AI-powered conversational interface using n8n workflows, Supabase database, and Weaviate vector search.",
+  image: "assets/images/n8nrag.jpeg",
+  category: ["ai", "web"],
+  technologies: ["n8n", "Supabase", "Weaviate", "Grok API", "Lovable", "PostgreSQL"],
+  github: "https://github.com/yourusername/vexaai-rag-chatbot",
+  demo: "https://vexai-pdf-spark.lovable.app/",
+  features: [
+    "Automated document processing from Google Drive",
+    "Vector-based semantic search with Weaviate",
+    "Real-time AI chat with conversation history",
+    "Multi-session chat management"
+  ],
+  year: "2025",
+  metrics: {
+    responseTime: "<2s",
+    accuracy: "92%",
+    documents: "100+"
+  }
+},
+
   {
     id: 1,
     title: "VexaAI Book Recommendation System",
@@ -190,7 +238,7 @@ const projects = [
     category: ["chatbot", "web"],
     technologies: ["Dialogflow", "FastAPI", "Python", "NLP", "REST API"],
     github: "https://github.com/JohnEvansOkyere/order-tracking-chatbot",
-    demo: "https://chatbot-demo.herokuapp.com",
+    demo: "#",
     features: [
       "Natural language processing",
       "Order status tracking",
@@ -213,7 +261,7 @@ const projects = [
     category: ["ml", "web"],
     technologies: ["Python", "XGBoost", "Streamlit", "Pandas", "Scikit-learn", "Plotly"],
     github: "https://github.com/JohnEvansOkyere/churn-prediction",
-    demo: "https://churn-prediction-app.streamlit.app",
+    demo: "https://ecommerce-customer-churn-prediction.vercel.app/index.html",
     features: [
       "XGBoost classification model",
       "Feature importance analysis",
@@ -235,7 +283,7 @@ const projects = [
     category: ["ml", "web"],
     technologies: ["Python", "Random Forest", "Flask", "Scikit-learn", "HTML/CSS", "Bootstrap"],
     github: "https://github.com/JohnEvansOkyere/heart-disease-prediction",
-    demo: "https://heart-prediction.herokuapp.com",
+    demo: "#",
     features: [
       "Random Forest classification",
       "Medical risk assessment",
@@ -341,21 +389,40 @@ const projects = [
 
 // Experience Data
 const experience = [
+
+    {
+    position: "AI/ML Engineer Intern",
+    company: "AISOFTDEVS (IT & TECHNOLOGY)",
+    location: "Mumbai, India (Remote)",
+    startDate: "2025-08",
+    endDate: "2025-10",
+    type: "internship",
+    description: "Built AI-powered automation tools and intelligent content systems using LLMs, n8n, and modern deployment platforms.",
+    achievements: [
+      "Built an AI-powered LinkedIn posting agent with n8n and LLMs, automating research and post generation to save 3+ hours daily.",
+      "Designed an AI-driven web app & browser extension to extract, summarize, and enrich online content, reducing research time by 95%.",
+      "Developed a Prompt-to-JSON Enhancer with Render & Vercel, boosting AI response accuracy by 50% via structured prompt transformation.",
+      "Automated AI-powered PDF generation and one-click export tool, improving content accuracy by 30% with validation checks."
+    ],
+    technologies: ["n8n", "LLMs", "JavaScript", "Render", "Vercel", "AI Automation"]
+  },
+
   {
     position: "Data Analyst",
-    company: "Shaq Express",
-    location: "Accra, Ghana",
-    startDate: "2024",
-    endDate: "2025",
+    company: "Shaq Express (E-commerce & Delivery Company)",
+    location: "Accra, Ghana (Hybrid)",
+    startDate: "2024-09",
+    endDate: "2025-09",
     type: "full-time",
-    description: "Analyzed user, vendor, and product data for e-commerce & delivery platform, delivering insights that directly impacted business growth and operational efficiency.",
+    description: "Led data analysis and dashboard development to optimize sales, vendor performance, and delivery operations in a fast-growing e-commerce environment.",
     achievements: [
-      "Analyzed user, vendor, and product data, uncovering insights that boosted sales by 20%",
-      "Built interactive dashboards in Tableau & SQL to monitor vendor performance, customer behavior, and revenue",
-      "Identified causes of delivery inefficiencies, helping reduce delays by 10%",
-      "Automated weekly and monthly performance reports, saving 8+ hours of manual work per week"
+      "Synthesized data from diverse sources to uncover growth opportunities, increasing weekly orders by 40% (500 → 700).",
+      "Engineered Python automation to synchronize product databases, improving Melcom data refresh efficiency by 70%.",
+      "Implemented geo-analytics dashboards to identify underserved areas, increasing order volume by 80%.",
+      "Collaborated with 5 backend developers to build a unified dashboard (sales, users, vendors, payments), enabling faster decision-making.",
+      "Partnered with operations team to identify low-performing regions and guide onboarding strategies, boosting sales by 90%."
     ],
-    technologies: ["Python", "SQL", "Tableau", "Excel", "Data Analysis", "Business Intelligence"]
+    technologies: ["Python", "SQL", "Tableau", "Excel", "Data Analysis", "Geo-analytics", "Business Intelligence"]
   }
 ];
 
@@ -380,7 +447,12 @@ const education = [
       "Final Year Project: Data Analytics System",
       "Software Development Projects"
     ]
-  }
+  },
+  
+
+
+
+
 ];
 
 // Certifications Data

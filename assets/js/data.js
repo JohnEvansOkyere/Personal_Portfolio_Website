@@ -7,9 +7,9 @@
 // Personal Information
 const personalInfo = {
   name: "John Evans Okyere",
-  title: "Data Scientist & Machine Learning Engineer",
-  subtitle: "Transforming data into business value",
-  description: "Data Scientist & Machine Learning Engineer with proven ability to turn complex data into business value. With hands-on experience in SQL, AI, and machine learning, I have delivered solutions that boosted sales by 20%, optimized delivery operations, and reduced inefficiencies in the e-commerce industry.",
+  title: "Data Scientist | ML Engineer | Automation Specialist",
+  subtitle: "Turning Data into Impact",
+  description: "I build intelligent systems that transform raw data into strategic business wins. I’ve engineered recommendation engines with >85% precision, churn models with 93%+ accuracy, and RAG/agent applications that streamline decision making. My work spans full ML pipelines, AI automation, and data-driven product insights.",
   email: "johnevansokyere@gmail.com",
   phone: "+233544954643",
   location: "Accra, Ghana",
